@@ -76,10 +76,6 @@
         [self.navigationController.navigationBar setItems:@[ content.navigationItem ] animated:animated];
     }
     
-    self.content = content;
-    
-    self.refreshControl = self.content.refreshControl;
-    
     [self.tableView beginUpdates];
     
     UITableViewRowAnimation deleteAnimation = UITableViewRowAnimationNone;
@@ -88,6 +84,9 @@
         deleteAnimation = self.popAnimation;
         insertAnimation = self.pushAnimation;
     }
+    
+    self.content = content;
+    self.refreshControl = self.content.refreshControl;
     
     [self.tableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.tableView.numberOfSections)]
                   withRowAnimation:deleteAnimation];
@@ -130,9 +129,6 @@
     self.refreshControl = nil;
     
     SLTableViewContent *previousContent = self.content;
-    self.content = content;
-    
-    self.refreshControl = self.content.refreshControl;
     
     [previousContent contentWillDisappearAnimated:animated];
     [content contentWillAppearAnimated:animated];
@@ -145,6 +141,9 @@
         deleteAnimation = self.pushAnimation;
         insertAnimation = self.popAnimation;
     }
+    
+    self.content = content;
+    self.refreshControl = self.content.refreshControl;
     
     [self.tableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.tableView.numberOfSections)]
                   withRowAnimation:deleteAnimation];
