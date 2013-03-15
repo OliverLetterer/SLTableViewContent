@@ -25,11 +25,6 @@
 
 #pragma mark - setters and getters
 
-- (UINavigationItem *)navigationItem
-{
-    return self.content.navigationItem ?: [super navigationItem];
-}
-
 #pragma mark - Initialization
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -70,12 +65,6 @@
     [previousContent contentWillDisappearAnimated:animated];
     [content contentWillAppearAnimated:animated];
     
-    if (animated) {
-        [self.navigationController.navigationBar pushNavigationItem:content.navigationItem animated:animated];
-    } else {
-        [self.navigationController.navigationBar setItems:@[ content.navigationItem ] animated:animated];
-    }
-    
     [self.tableView beginUpdates];
     
     UITableViewRowAnimation deleteAnimation = UITableViewRowAnimationNone;
@@ -115,14 +104,6 @@
 {
     if (self.content == content) {
         return;
-    }
-    
-    if (animated) {
-        [self.navigationController.navigationBar setItems:@[ content.navigationItem, self.content.navigationItem ]
-                                                       animated:NO];
-        [self.navigationController.navigationBar popNavigationItemAnimated:animated];
-    } else {
-        [self.navigationController.navigationBar setItems:@[ content.navigationItem ] animated:animated];
     }
     
     [self.refreshControl endRefreshing];
@@ -201,8 +182,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    self.navigationController.navigationBar.items = @[ self.content.navigationItem ];
     
     [self.content contentDidAppearAnimated:animated];
 }
