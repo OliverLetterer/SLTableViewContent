@@ -287,7 +287,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [_content tableView:tableView heightForRowAtIndexPath:indexPath];
+    if ([_content respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
+        return [_content tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+    
+    return UITableViewAutomaticDimension;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
