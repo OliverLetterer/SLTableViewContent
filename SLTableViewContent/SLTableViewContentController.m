@@ -311,6 +311,42 @@
     return nil;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if ([self.content respondsToSelector:@selector(tableView:viewForFooterInSection:)]) {
+        return [self.content tableView:tableView viewForFooterInSection:section];
+    }
+    
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if ([self.content respondsToSelector:@selector(tableView:viewForHeaderInSection:)]) {
+        return [self.content tableView:tableView viewForHeaderInSection:section];
+    }
+    
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if ([self.content respondsToSelector:@selector(tableView:heightForHeaderInSection:)]) {
+        return [self.content tableView:tableView heightForHeaderInSection:section];
+    }
+    
+    return [self tableView:tableView viewForHeaderInSection:section].frame.size.height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if ([self.content respondsToSelector:@selector(tableView:heightForFooterInSection:)]) {
+        return [self.content tableView:tableView heightForFooterInSection:section];
+    }
+    
+    return [self tableView:tableView viewForFooterInSection:section].frame.size.height;
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
