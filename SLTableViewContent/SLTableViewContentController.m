@@ -57,6 +57,10 @@
         return;
     }
     
+    self.navigationItem.title = content.title;
+    self.navigationItem.leftBarButtonItem = content.navigationItem.leftBarButtonItem;
+    self.navigationItem.rightBarButtonItem = content.navigationItem.rightBarButtonItem;
+    
     SLTableViewContent *previousContent = self.content;
     
     [self.refreshControl endRefreshing];
@@ -105,6 +109,10 @@
     if (self.content == content) {
         return;
     }
+    
+    self.navigationItem.title = content.title;
+    self.navigationItem.leftBarButtonItem = content.navigationItem.leftBarButtonItem;
+    self.navigationItem.rightBarButtonItem = content.navigationItem.rightBarButtonItem;
     
     [self.refreshControl endRefreshing];
     self.refreshControl = nil;
