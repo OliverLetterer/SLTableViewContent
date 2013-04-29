@@ -8,6 +8,7 @@
 
 #import "SLTableViewContentController.h"
 #import "SLTableViewContent.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 
