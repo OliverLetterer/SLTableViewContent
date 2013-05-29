@@ -25,10 +25,10 @@
 
 - (id)initWithTableViewController:(SLTableViewContentController *)tableViewController;
 
-- (void)contentWillAppearAnimated:(BOOL)animated;
-- (void)contentDidAppearAnimated:(BOOL)animated;
+- (void)contentWillAppearAnimated:(BOOL)animated __attribute((objc_requires_super));
+- (void)contentDidAppearAnimated:(BOOL)animated __attribute((objc_requires_super));
 
-- (void)contentWillDisappearAnimated:(BOOL)animated;
-- (void)contentDidDisappearAnimated:(BOOL)animated;
+- (void)contentWillDisappearAnimated:(BOOL)animated __attribute((objc_requires_super));
+- (void)contentDidDisappearAnimated:(BOOL)animated __attribute((objc_requires_super));
 
 @end
