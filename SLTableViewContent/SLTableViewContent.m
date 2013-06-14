@@ -96,4 +96,18 @@
     
 }
 
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
 @end
