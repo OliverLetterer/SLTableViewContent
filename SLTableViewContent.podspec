@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SLTableViewContent"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "Multiple contents for one UITableViewController."
   s.homepage     = "https://github.com/OliverLetterer/SLTableViewContent"
 
